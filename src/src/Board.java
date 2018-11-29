@@ -1,7 +1,5 @@
 package src;
 
-import org.junit.Assert;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -40,7 +38,7 @@ public class Board extends JPanel implements ActionListener {
     private boolean downDirection = false;
     private boolean inGame = true;
 
-    private Timer timer;
+    public Timer timer;
     private Image ball;
     private Image apple;
     private Image pear;
@@ -112,7 +110,7 @@ public class Board extends JPanel implements ActionListener {
 
         r = (int) (random.nextDouble() * RAND_POS);
         int y = ((r * DOT_SIZE));
-		Assert.assertTrue(apple != null && pear != null);
+		//Assert.assertTrue(apple != null && pear != null);
         elements.add(new Element(random.nextBoolean() ? apple : pear, random.nextInt(10), x, y));
     }
     
@@ -146,15 +144,15 @@ public class Board extends JPanel implements ActionListener {
             endGame();
     }
     
-    private Boolean commitedSuicide() {
+    public Boolean commitedSuicide() {
         return (y[0] >= B_HEIGHT || y[0] < 0 || x[0] >= B_WIDTH || x[0] < 0);
     }
 
-    private Boolean isSuicide(int z) {
+    public Boolean isSuicide(int z) {
         return (z > 4) && (x[0] == x[z]) && (y[0] == y[z]);
     }
     
-    private void endGame() {
+    public void endGame() {
         inGame = false;
         timer.stop();
     }
@@ -180,7 +178,7 @@ public class Board extends JPanel implements ActionListener {
         elements.remove(e);
     }
 
-    private int getScore(Element e) {
+    public int getScore(Element e) {
         if (e.getScore() <= 5) return 5;
         if (e.getScore() <= 10) return 10;
         return 0;
@@ -196,6 +194,11 @@ public class Board extends JPanel implements ActionListener {
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2 - 10);
         msg = "Your score is: " + score;
         g.drawString(msg, (B_WIDTH - metr.stringWidth(msg)) / 2, B_HEIGHT / 2 + 10);
+    }
+    
+    public void helperFunction(int x, int y) {
+    	this.x[0] = x;
+    	this.y[0] = y;
     }
     
     @Override
