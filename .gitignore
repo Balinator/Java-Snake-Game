@@ -1,5 +1,7 @@
 out/
 .idea/
+.idea/libraries/
+.idea/libraries/org_assertj_assertj_swing_junit_4_3_1_1_0_0.xml
 **.project
 **.classpath
 **.iml
