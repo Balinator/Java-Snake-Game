@@ -1,6 +1,6 @@
 out/
 .idea/
-*.project
-*.classpath
-*.iml
-*/.gitignore
+**.project
+**.classpath
+**.iml
+**/.gitignore
