@@ -140,11 +140,11 @@ public class Board extends JPanel implements ActionListener {
             	break;
             }
         }
-        if (commitedSuicide())
+        if (committedSuicide())
             endGame();
     }
     
-    public Boolean commitedSuicide() {
+    public Boolean committedSuicide() {
         return (y[0] >= B_HEIGHT || y[0] < 0 || x[0] >= B_WIDTH || x[0] < 0);
     }
 
@@ -158,8 +158,7 @@ public class Board extends JPanel implements ActionListener {
     }
     
     private void checkElement() {
-        for (int i = 0; i < elements.size(); ++i) {
-            Element e = elements.get(i);
+        for (Element e : elements) {
             if (checkSnakeAteFruit(e)) {
                 snakeAteFruit(e);
                 break;

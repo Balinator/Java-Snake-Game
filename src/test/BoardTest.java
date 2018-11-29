@@ -6,9 +6,6 @@ import src.Element;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Balinator on 2018. 11. 29..
- */
 public class BoardTest {
     private Board board = new Board();
 
@@ -43,13 +40,13 @@ public class BoardTest {
     @Test
     public void testCommitedSuicide() {
         board.helperFunction(-10, 50);
-        assertTrue(board.commitedSuicide());
+        assertTrue(board.committedSuicide());
     }
 
     @Test
     public void testnotCommitedSuicide() {
         board.helperFunction(10, 50);
-        assertFalse(board.commitedSuicide());
+        assertFalse(board.committedSuicide());
     }
 
 }
